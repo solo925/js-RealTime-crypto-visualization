@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptocurrency Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./assets/js/scripts.js" defer></script>
+    <style>
+        body {
+            background-color: #f9fafb;
+        }
+
+        .card {
+            border-radius: 0.375rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mx-auto mt-10">
+        <h1 class="text-3xl font-bold text-center mb-5">Cryptocurrency Dashboard</h1>
+
+        <div class="mb-3 text-center">
+            <label for="timeframeSelect" class="mr-2">Select Time Frame:</label>
+            <select id="timeframeSelect" class="border rounded p-1" onchange="fetchCryptoData()">
+                <option value="1">Last 1 Day</option>
+                <option value="7">Last 7 Days</option>
+                <option value="30">Last 30 Days</option>
+            </select>
+            <button class="bg-blue-500 text-white px-4 py-2 rounded ml-2" onclick="fetchCryptoData()">Refresh
+                Data</button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="charts-container">
+            <div class="card p-4">
+                <h5 class="font-bold text-lg">Bitcoin Price Variation</h5>
+                <canvas id="bitcoinChart"></canvas>
+            </div>
+            <div class="card p-4">
+                <h5 class="font-bold text-lg">Ethereum Price Variation</h5>
+                <canvas id="ethereumChart"></canvas>
+            </div>
+            <div class="card p-4">
+                <h5 class="font-bold text-lg">Ripple Price Variation</h5>
+                <canvas id="rippleChart"></canvas>
+            </div>
+            <div class="card p-4">
+                <h5 class="font-bold text-lg">Litecoin Price Variation</h5>
+                <canvas id="litecoinChart"></canvas>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
